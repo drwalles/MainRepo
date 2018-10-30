@@ -15,6 +15,18 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('binary_search');
+            $table->integer('dynamic_programming');
+            $table->integer('ad_hoc');
+            $table->integer('basic_data_structure');
+            $table->integer('bfs');
+            $table->integer('dfs');
+            $table->integer('math');
+            $table->integer('string');
+            $table->integer('greedy');
+            $table->integer('bit_manipulation');
+            $table->integer('divide_and_conquer');
+            $table->integer('sort');
             $table->timestamps();
         });
     }

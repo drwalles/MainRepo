@@ -15,6 +15,19 @@ class CreateProblemsTable extends Migration
     {
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('problem_name');
+            $table->string('proble_description');
+            $table->string('problem_setter');
+            $table->integer('total_solved');
+            $table->integer('total_submission');
+            $table->integer('problem_tag')->unsigned();
+            $table->foreign('proglem_tag')->references('id')->on('tags')->onDelete('cascade');
+            $table->integer('time_limit');
+            $table->integer('memory_limit');
+            $table->string('sample_input');
+            $table->string('sample_output');
+            $table->string('tc_input');
+            $table->string('tc_output');
             $table->timestamps();
         });
     }

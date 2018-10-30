@@ -15,6 +15,15 @@ class CreateSubmissionsTable extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->increments('id');
+            $table->dateTime('submission_time');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('code');
+            $table->integer('problem_id')->unsigned();
+            $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
+            $table->string('verdict');
+            $table->string('cpu');
+            $table->string('memory');
             $table->timestamps();
         });
     }
